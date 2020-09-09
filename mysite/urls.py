@@ -13,14 +13,15 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 from mysite.views import IndexView
 
 from bookmark.views import BookmarkLV, BookmarkDV
 from blog.views import PostLV, PostDV
+from mysite.views import IndexView, UserCreateView, UserCreateDoneTV
 
-#   Static파일이란 웹 사이트 구성요소 중 Image, CSS, Script파일과 같이
+#   Static파일이란 웹 사이트 구성요소 중 Image, CSS, Script 파일과 같이
 #   그 내용이 고정되어 응답을 할 때 별도의 처리 없이 파일 내용을 그대로 보내주면 되는 파일을 의미합니다.
 #   Static파일을 처리하기 위해서는 밑의 별도의 처리가 필요합니다.
 from django.conf.urls.static import static # 밑의 (static)
@@ -31,8 +32,14 @@ urlpatterns = [
     #    "r'^" (기본) + 원하는주소
     url(r'^admin/', admin.site.urls),
     url(r'^$', IndexView.as_view(), name='index'),
+
+    url(r'^accounts/register/$', UserCreateView.as_view(), name='register'),
+    url(r'^accounts/register/done/$', UserCreateDoneTV.as_view(), name='register_done'),
+
+    url(r'^accounts/', include('django.contrib.auth.urls')),
+
     url(r'^bookmark/$', BookmarkLV.as_view(), name='bookmark_index'),
     url(r'^bookmark/(?P<pk>\d+)/$', BookmarkDV.as_view(), name='detail'),
-    url(r'^blog/$', PostLV.as_view(), name = 'blog_index'),
+    url(r'^blog/$', PostLV.as_view(), name='blog_index'),
     url(r'^blog/(?P<pk>\d+)/$', PostDV.as_view(), name='blog_detail'),
-] + static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT) # 처리 (static)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # 처리 (static)

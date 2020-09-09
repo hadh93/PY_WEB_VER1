@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--
+method 속성: 데이터의 전송방식
+action 속성: 데이터가 보내질 url
+
+을 작성해야 하지만
+장고가 내부적으로 처리해주기 때문에
+아래 코드와 같이 작성해줍니다. -->
+<form method="post" action=".">{% csrf_token %}  <!-- 아래 코드-->
+
+    <!-- username 입력 요소를 출력합니다.
+    form.username 은 사용자 이름을 입력할 수 있는 input 창을 생성시킵니다.
+    form.username.label_tag 는 username input 의 레이블에 콜론(:) 까지 붙여서 출력할 수 있게 해줍니다.
+    -->
+    {% if form.errors %}
+    <p>Wrong! Please correct the error(s) below.</p>
+    {% endif %}
+
+    <div>
+        {{ form.username.label_tag }} {{ form.username }}
+    </div>
+
+    <div>
+        {{ form.password1.label_tag }} {{ form.password1 }}
+    </div>
+
+    <div>
+        {{ form.password2.label_tag }} {{ form.password2 }}
+    </div>
+
+    <button type="submit">SIGN UP</button>
+
+</form>
+
+</body>
+</html>

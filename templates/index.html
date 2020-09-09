@@ -41,6 +41,25 @@
         #username{
             color: greenyellow;
         }
+        #auth1{
+            left:50%;
+            top:10%;
+        }
+        #auth2{
+            left:50%;
+            top:10%;
+        }
+        .auth_menu{
+            font-size:25px;
+            color:fuchsia;
+        }
+        .greet{
+            font-size:25px;
+        }
+        .userID{
+            color: greenyellow;
+            font-size 35px;
+        }
     </style>
 </head>
 <body>
@@ -59,6 +78,23 @@
         <li><a href="{% url 'bookmark_index' %}">BOOKMARK</a></li>
         <li><a href="{% url 'blog_index' %}">BLOG</a></li>
     </ul>
+
+
+    {% if user.is_active %}
+
+    <ul class="main_text" id="auth1">
+        <p class="greet">Hello, <strong class="userID">{{ user.get_username }}</strong></p>
+        <li><a class="auth_menu" href="{% url 'logout' %}">SIGN OUT</a></li>
+        <li><a class="auth_menu" href="{% url 'password_change' %}">PW CHANGE</a></li>
+    </ul>
+
+    {% else %}
+    <ul class="main_text" id="auth2">
+        <p class="greet">Welcome, <strong class="userID">Anonymous</strong></p>
+        <li><a class="auth_menu" href="{% url 'login' %}">SIGN IN</a></li>
+        <li><a class="auth_menu" href="{% url 'register' %}">SIGN UP</a></li>
+    </ul>
+    {% endif %}
 
 
 </body>

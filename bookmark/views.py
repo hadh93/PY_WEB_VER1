@@ -9,3 +9,4 @@ class BookmarkLV(ListView): # 북마크 리스트뷰
 
 class BookmarkDV(DetailView):
     model = Bookmark
+
