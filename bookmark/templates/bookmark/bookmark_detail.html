@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+    ul{
+            list-style: none;
+        }
+        li{
+            width: 900px;
+            margin: auto;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        #title{
+            font-family: 'Do Hyeon', sans-serif;
+            font-size: 100px;
+            color: red;
+        }
+        .small{
+            font-size: 20px;
+            color: gray;
+        }
+        a{
+            text-decoration: none;
+            color: dimgray;
+        }
+        li:hover{
+            background-color: rgba(255,20,147,0.1);
+        }
+        iframe{
+            width: 900px;
+            height: 506px;
+        }
+</style>
+
+<body>
+
+<div id="content">
+
+
+    <h1 id="title">{{object.title}}</h1>
+
+    <ul>
+        <li>URL: <a href= "{{ object.url }}"> {{ object.url }} </a></li>
+        <li>Create Date: {{ object.create_date }}</li>
+        <li>Modify Date: {{ object.modify_date }}</li>
+    </ul>
+
+    <iframe src="{{ object.url }}"></iframe>
+
+</div>
+
+</body>
+</html>

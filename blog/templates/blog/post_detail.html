@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://dlabthomasdjangotest.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    </script>
+</head>
+<body>
+
+<div id = "content">
+    <h1>{{ object.title }}</h1>
+    <div>
+        <p>Description: {{ object.description }}</p>
+        <p>Create Date: {{ object.create_date }}</p>
+        <p>Modify Date: {{ object.modify_date }}</p>
+        <img src="{{ object.image.url }}" width="600" height="600">
+        <div id="disqus_thread"></div>
+    </div>
+</div>
+
+</body>
+</html>
