@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:font-family="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Post List</title>
     {% load staticfiles %}
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon:400" rel="stylesheet">
 </head>
 
 <style>
@@ -16,22 +18,38 @@
         width:380px; height:380px;
         margin:auto; display:block;
     }
+    .center {
+        margin: auto;
+        width: 50%;
+        border: 1px solid lightgray;
+        padding: 10px;
+    }
+    .cursive {
+        font-family: 'Pacifico', cursive;
+    }
+    .blogtitle {
+        font-size: 30px;
+        text-align: center;
+    }
+    p {
+        font-family: 'Do Hyeon', sans-serif;
+    }
 </style>
 
 <body>
 
-    <div id = "content">
+    <div id = "content" class="center">
 
         {% for post in object_list %}
 
         <div class = "box">
-            <p> {{ post.title }} </p>
+            <p class = "blogtitle cursive"> {{ post.title }} </p>
             <a href="{% url 'blog_detail' post.id %}">
                 <img src="{{ post.image.url }}">
             </a>
             <p> {{ post.description }} </p>
-            <p> Create Date: {{ post.create_date }} </p>
-            <p> Create Date: {{ post.modify_date }} </p>
+            <p> <span class = "cursive">Create Date: </span>{{ post.create_date }} </p>
+            <p> <span class = "cursive">Modify Date: </span>{{ post.modify_date }} </p>
         </div>
         {% endfor %}
 
