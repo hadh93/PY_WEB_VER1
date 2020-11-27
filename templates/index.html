@@ -4,24 +4,27 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Texturina:wght@100&display=swap" rel="stylesheet">
     <style>
         .main_text{
-            font-family: 'Pacifico', cursive;
+            font-family: 'Texturina', serif;
             position: absolute;
-            text-align: center;
             transform: translate(-50%, -50%);
-            color: white;
+            color: black;
             width: 100%;
         }
         #title{
+            text-align: center;
             left: 50%;
-            top: 20%;
+            top: 1%;
             font-size: 60px;
         }
         #made{
-            left: 50%;
-            top: 45%;
+            left: 0%;
+            top: 0%;
             font-size: 25px;
+
         }
         #menu{
             left: 50%;
@@ -43,15 +46,15 @@
         }
         #auth1{
             left:50%;
-            top:10%;
+            top:0%;
         }
         #auth2{
             left:50%;
-            top:10%;
+            top:0%;
         }
         .auth_menu{
             font-size:25px;
-            color:fuchsia;
+            color:darkgreen;
         }
         .greet{
             font-size:25px;
@@ -60,15 +63,21 @@
             color: greenyellow;
             font-size 35px;
         }
+        #wallpaper{
+            margin-top:7%;
+            background-image: url("media/wallpaper.jpg");
+            min-height: 500px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
     </style>
 </head>
 <body>
-    <iframe width="100%" height="1060"
-            src="https://www.youtube.com/embed/KGlv9Lw4QSM?autoplay=1&mute=1"
-            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-    </iframe>
+
     <h1 class="main_text" id="title">DJANGO FRAMEWORK</h1>
+    <div id = "wallpaper"></div>
     <h1 class="main_text" id="made">Made by
         <span id="username">Thomas</span> &amp;
         <span id="dlab">DLAB</span>
