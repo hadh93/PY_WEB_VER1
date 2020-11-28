@@ -53,15 +53,15 @@
             top:0%;
         }
         .auth_menu{
-            font-size:25px;
-            color:darkgreen;
+            font-size:15px;
+            color: darkgreen;
         }
         .greet{
-            font-size:25px;
+            font-size:20px;
         }
         .userID{
-            color: greenyellow;
-            font-size 35px;
+            color: darkbrown;
+            font-size: 23px;
         }
         #wallpaper{
             margin-top:7%;
@@ -71,6 +71,15 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
+        }
+        .accountInfo{
+            position: absolute;
+            width: 700px;
+            height: 200px;
+            z-index: 15;
+            top: 17%;
+            left: 85%;
+            margin: -100px 0 0 -150px;
         }
     </style>
 </head>
@@ -90,19 +99,22 @@
 
 
     {% if user.is_active %}
-
-    <ul class="main_text" id="auth1">
-        <p class="greet">Hello, <strong class="userID">{{ user.get_username }}</strong></p>
-        <li><a class="auth_menu" href="{% url 'logout' %}">SIGN OUT</a></li>
-        <li><a class="auth_menu" href="{% url 'password_change' %}">PW CHANGE</a></li>
-    </ul>
+    <div class ="accountInfo">
+        <ul class="main_text" id="auth1">
+            <p class="greet">Hello, <strong class="userID">{{ user.get_username }}</strong></p>
+            <li><a class="auth_menu" href="{% url 'logout' %}">SIGN OUT</a></li>
+            <li><a class="auth_menu" href="{% url 'password_change' %}">PW CHANGE</a></li>
+        </ul>
+    </div>
 
     {% else %}
-    <ul class="main_text" id="auth2">
-        <p class="greet">Welcome, <strong class="userID">Anonymous</strong></p>
-        <li><a class="auth_menu" href="{% url 'login' %}">SIGN IN</a></li>
-        <li><a class="auth_menu" href="{% url 'register' %}">SIGN UP</a></li>
-    </ul>
+    <div class ="accountInfo">
+        <ul class="main_text" id="auth2">
+            <p class="greet">Welcome, <strong class="userID">Anonymous</strong></p>
+            <li><a class="auth_menu" href="{% url 'login' %}">SIGN IN</a></li>
+            <li><a class="auth_menu" href="{% url 'register' %}">SIGN UP</a></li>
+        </ul>
+    </div>
     {% endif %}
 
 
